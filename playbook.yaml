@@ -1,0 +1,35 @@
+---
+  - name: Install telnet
+    resource: package
+    action: install
+    package_name: telnet
+  - name: Create /tmp/blah
+    resource: file
+    action: create
+    remote_file: /tmp/blah
+  - name: Delete /tmp/blah
+    resource: file
+    action: delete
+    remote_file: /tmp/blah
+  - name: Copy /etc/lsb-release
+    resource: file
+    action: upload
+    local_file: /etc/lsb-release
+    remote_file: /tmp/lsb-release
+  - name: Start ssh service
+    resource: service
+    action: start
+    service_name: ssh
+  - name: Update package manager
+    resource: update
+  - name: Create /tmp/test directory
+    resource: directory
+    action: create
+    remote_directory: /tmp/test
+  - name: Delete /tmp/test directory
+    resource: directory
+    action: delete
+    remote_directory: /tmp/test
+  - name: Execute remote 'Hello World!'
+    resource: command
+    remote_command: echo "Hello World!"
